@@ -178,47 +178,16 @@
           </li>
           
         </ol>
-        <div class="footer">
-          <nav>
-            <a href="/terms/">Умови використання</a> &middot;
-            <a href="/privacy/">Політика конфіденційності</a> &middot;
-            <a href="/support/">Підтримка</a>
-          </nav>
 
-          <style>
-            .footer nav a {
-              color: #4a5568;
-              text-decoration: none;
-              margin: 0 6px;
-              transition: color 0.2s ease;
-            }
-
-            .footer nav a:hover {
-              color: #667eea;
-            }
-
-            .footer nav a.active {
-              color: #764ba2;
-              font-weight: bold;
-              text-decoration: underline;
-            }
-          </style>
-
-          <script>
-            document.addEventListener('DOMContentLoaded', () => {
-              const currentPath = location.pathname.replace(/\/$/, '');
-              document.querySelectorAll('.footer nav a').forEach(link => {
-                const href = link.getAttribute('href').replace(/\/$/, '');
-                if (href === currentPath) link.classList.add('active');
-              });
+        <div id="footer-placeholder"></div>
+        <script>
+          fetch('../components/footer.html')
+            .then(response => response.text())
+            .then(html => {
+              document.getElementById('footer-placeholder').innerHTML = html;
             });
-          </script>
+        </script>
 
-          <div style="margin-top: 10px;">
-            Останнє оновлення: жовтень 2025 року<br>
-            &copy; Corner Coffee — усі права захищено
-          </div>
-        </div>
     </div>
 </body>
 </html>
